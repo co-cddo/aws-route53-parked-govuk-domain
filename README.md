@@ -3,6 +3,7 @@
 For AWS Route53 DNS records for use on parked "gov.uk" domains.
 
 Reference: <https://www.gov.uk/guidance/protect-domains-that-dont-send-email>
+
 Reference: <https://www.ncsc.gov.uk/blog-post/protecting-parked-domains>
 
 ## Terraform module
