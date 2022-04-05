@@ -27,13 +27,13 @@ Note: the use of the `//` is important to select the sub-directory.
 
 ``` terraform
 module "co-cddo-aws-r53-parked-domain" {
-  source                 = "github.com/co-cddo/aws-route53-parked-govuk-domain//terraform?ref=829478ba8ed41863d7e5f526475de3e09171da4d"
+  source                 = "github.com/co-cddo/aws-route53-parked-govuk-domain//terraform?ref=5e85556ce417cd335c440fd1e7079bd331f443d5"
   zone_id                = aws_route53_zone.primary.zone_id
 }
 
 # all variables
 module "co-cddo-aws-r53-parked-domain" {
-  source                 = "github.com/co-cddo/aws-route53-parked-govuk-domain//terraform?ref=829478ba8ed41863d7e5f526475de3e09171da4d"
+  source                 = "github.com/co-cddo/aws-route53-parked-govuk-domain//terraform?ref=5e85556ce417cd335c440fd1e7079bd331f443d5"
   zone_id                = aws_route53_zone.primary.zone_id
   depends_on             = aws_route53_zone.primary
   email_records          = true  # default
