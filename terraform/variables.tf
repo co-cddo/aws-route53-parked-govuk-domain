@@ -21,3 +21,13 @@ variable "additional_dmarc_ruas" {
   type = list
   default = []
 }
+
+variable "default_txt_record" {
+  type = string
+  default = "v=spf1 -all"
+}
+
+variable "additional_txt_records" {
+  type = list
+  default = []
+}

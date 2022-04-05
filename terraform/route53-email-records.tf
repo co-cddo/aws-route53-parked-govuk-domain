@@ -4,7 +4,7 @@ resource "aws_route53_record" "spf-record" {
   name    = "."
   type    = "TXT"
   ttl     = "60"
-  records = ["v=spf1 -all"]
+  records = length(var.additional_txt_records) > 0 ? concat([var.default_txt_record], var.additional_txt_records) : [var.default_txt_record]
 }
 
 resource "aws_route53_record" "dmarc-record" {
