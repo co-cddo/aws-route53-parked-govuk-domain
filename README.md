@@ -27,18 +27,20 @@ Note: the use of the `//` is important to select the sub-directory.
 
 ``` terraform
 module "co-cddo-aws-r53-parked-domain" {
-  source                = "github.com/co-cddo/aws-route53-parked-govuk-domain//terraform?ref=829478ba8ed41863d7e5f526475de3e09171da4d"
-  zone_id               = aws_route53_zone.primary.zone_id
+  source                 = "github.com/co-cddo/aws-route53-parked-govuk-domain//terraform?ref=829478ba8ed41863d7e5f526475de3e09171da4d"
+  zone_id                = aws_route53_zone.primary.zone_id
 }
 
 # all variables
 module "co-cddo-aws-r53-parked-domain" {
-  source                = "github.com/co-cddo/aws-route53-parked-govuk-domain//terraform?ref=829478ba8ed41863d7e5f526475de3e09171da4d"
-  zone_id               = aws_route53_zone.primary.zone_id
-  depends_on            = aws_route53_zone.primary
-  email_records         = true  # default
-  webserver_records     = false # default
-  additional_dmarc_ruas = []    # default, list of additional email addresses
-  default_dmarc_record  = "v=DMARC1;p=reject;sp=reject;adkim=s;aspf=s;fo=1;rua=mailto:dmarc-rua@dmarc.service.gov.uk"
+  source                 = "github.com/co-cddo/aws-route53-parked-govuk-domain//terraform?ref=829478ba8ed41863d7e5f526475de3e09171da4d"
+  zone_id                = aws_route53_zone.primary.zone_id
+  depends_on             = aws_route53_zone.primary
+  email_records          = true  # default
+  webserver_records      = false # default
+  additional_dmarc_ruas  = []    # default, list of additional email addresses
+  default_dmarc_record   = "v=DMARC1;p=reject;sp=reject;adkim=s;aspf=s;fo=1;rua=mailto:dmarc-rua@dmarc.service.gov.uk"
+  default_txt_record     = "v=spf1 -all"
+  additional_txt_records = []    # default, list of additional TXT records for the root
 }
 ```
